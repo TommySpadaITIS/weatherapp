@@ -1,0 +1,39 @@
+#:kivy 2.0.0
+#:import utils kivy.utils
+
+<WeatherCard>:
+    orientation: "vertical"
+    size_hint: 1, None
+    height: "100dp"
+    padding: "8dp"
+    elevation: 2
+    radius: [10, 10, 10, 10]
+    md_bg_color: [0.9, 0.9, 0.9, 1]
+    
+<WeatherApp>:
+    MDScreen:
+        MDBoxLayout:
+            orientation: "vertical"
+            
+            MDTopAppBar:
+                id: toolbar
+                title: "T.S. Weather"
+                elevation: 10
+                specific_text_color: 1, 1, 1, 1
+                
+            MDLabel:
+                id: location_label
+                text: f"Location: {app.latitude}, {app.longitude}"
+                halign: "center"
+                size_hint_y: None
+                height: "40dp"
+                
+            ScrollView:
+                do_scroll_x: False
+                
+                MDGridLayout:
+                    id: weather_container
+                    cols: 1
+                    adaptive_height: True
+                    spacing: "10dp"
+                    padding: "10dp"
